@@ -1,0 +1,192 @@
+/* Athar — shared site styles
+   Brand colors pulled directly from the app's own asset catalog
+   (Athar/Resources/Assets.xcassets), not invented for the web. */
+
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink: #1a201e;
+  --ink-soft: #5b6a63;
+  --cream: #f6f2e9;
+  --cream-deep: #efe8d8;
+  --card: #ffffff;
+  --line: rgba(26, 32, 30, 0.1);
+  --green: #1c7c65;
+  --green-deep: #124a3c;
+  --green-tint: rgba(28, 124, 101, 0.08);
+  --on-green: #f6f2e9;
+  --shadow: 0 20px 50px -20px rgba(18, 74, 60, 0.35);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #eef2f0;
+    --ink-soft: #9fb0a8;
+    --cream: #121214;
+    --cream-deep: #1a1c1a;
+    --card: #1c1c1e;
+    --line: rgba(238, 242, 240, 0.1);
+    --green: #3ac49e;
+    --green-deep: #0f3a2f;
+    --green-tint: rgba(58, 196, 158, 0.12);
+    --on-green: #0c1a16;
+    --shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.6);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: 'Spectral', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+a { color: var(--green); }
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-inline: 24px;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  padding-block: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.brand img {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+}
+
+.brand span {
+  font-family: 'Spectral', Georgia, serif;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.site-header nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.site-header nav a:hover { color: var(--green); }
+
+/* ---------- Eyebrow label ---------- */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--green);
+  display: inline-block;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  background: var(--ink);
+  color: var(--cream);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.store-btn:hover { transform: translateY(-1px); opacity: 0.92; }
+
+.store-btn.primary {
+  background: var(--green);
+  color: var(--on-green);
+}
+
+.store-btn svg { width: 19px; height: 19px; flex-shrink: 0; }
+
+.store-btn .labels { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
+.store-btn .labels small { font-size: 10.5px; font-weight: 500; opacity: 0.75; }
+.store-btn .labels strong { font-size: 15px; }
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 90px;
+  padding-block: 28px;
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+}
+
+.site-footer a { color: var(--ink-soft); text-decoration: none; }
+.site-footer a:hover { color: var(--green); }
+
+.footer-links { display: flex; gap: 20px; }
+
+@media (max-width: 600px) {
+  .site-footer .wrap { flex-direction: column; align-items: flex-start; }
+}
