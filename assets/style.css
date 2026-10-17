@@ -2,7 +2,7 @@
    Brand colors pulled directly from the app's own asset catalog
    (Athar/Resources/Assets.xcassets), not invented for the web. */
 
-@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   --ink: #1a201e;
@@ -51,9 +51,9 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'Spectral', Georgia, serif;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-family: 'Baloo 2', 'Segoe UI', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
   margin: 0;
 }
 
@@ -93,9 +93,9 @@ a { color: var(--green); }
 }
 
 .brand span {
-  font-family: 'Spectral', Georgia, serif;
-  font-size: 19px;
-  font-weight: 600;
+  font-family: 'Baloo 2', 'Segoe UI', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .site-header nav a {
