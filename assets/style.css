@@ -107,26 +107,20 @@ a { color: var(--green); }
 
 .site-header nav a:hover { color: var(--green); }
 
-/* ---------- Eyebrow label ---------- */
+/* ---------- Label (crescent mark + word, not a text eyebrow) ---------- */
 
-.eyebrow {
+.label {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12.5px;
+  gap: 9px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--green);
+  letter-spacing: 0.04em;
+  color: inherit;
+  opacity: 0.75;
 }
 
-.eyebrow::before {
-  content: '';
-  width: 16px;
-  height: 1px;
-  background: var(--green);
-  display: inline-block;
-}
+.label svg { width: 13px; height: 13px; flex-shrink: 0; }
 
 /* ---------- Buttons ---------- */
 
@@ -156,6 +150,12 @@ a { color: var(--green); }
 .store-btn.primary {
   background: var(--green);
   color: var(--on-green);
+}
+
+.store-btn.outline {
+  background: transparent;
+  border-color: currentColor;
+  color: inherit;
 }
 
 .store-btn svg { width: 19px; height: 19px; flex-shrink: 0; }

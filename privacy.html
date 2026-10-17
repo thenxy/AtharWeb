@@ -10,61 +10,64 @@
 <link rel="stylesheet" href="assets/style.css">
 <style>
   .policy-head {
-    padding-block: 56px 20px;
-    border-bottom: 1px solid var(--line);
+    padding-block: 56px 36px;
   }
   .policy-head h1 {
-    font-size: clamp(30px, 4vw, 42px);
-    margin-top: 14px;
+    font-size: clamp(30px, 4vw, 44px);
+    margin-top: 16px;
+    max-width: 16ch;
   }
   .policy-head .updated {
     color: var(--ink-soft);
     font-size: 14.5px;
-    margin-top: 10px;
+    margin-top: 12px;
   }
-  .policy-intro {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-left: 3px solid var(--green);
-    border-radius: var(--radius-sm);
-    padding: 20px 22px;
-    font-size: 16px;
-    line-height: 1.65;
-    margin: 36px 0 8px;
+  .policy-head .lede {
+    font-size: 17px;
     color: var(--ink-soft);
+    max-width: 58ch;
+    margin-top: 20px;
   }
-  .policy-body { padding-block: 20px 60px; }
-  .policy-section {
-    padding-block: 28px;
-    border-bottom: 1px solid var(--line);
+
+  .policy-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 56px;
+    padding-block: 10px 70px;
+    align-items: start;
   }
-  .policy-section:last-child { border-bottom: none; }
-  .policy-section h2 {
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--green);
-    font-family: 'Work Sans', sans-serif;
+
+  .toc {
+    position: sticky;
+    top: 28px;
     display: flex;
-    align-items: baseline;
+    flex-direction: column;
     gap: 10px;
-    margin-bottom: 12px;
+    border-left: 2px solid var(--line);
+    padding-left: 16px;
   }
-  .policy-section h2 .n {
+  .toc a {
     color: var(--ink-soft);
-    opacity: 0.6;
-    font-weight: 500;
+    text-decoration: none;
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+  .toc a:hover { color: var(--green); }
+
+  .policy-body { max-width: 68ch; }
+  .policy-section { padding-block: 30px; border-top: 1px solid var(--line); scroll-margin-top: 24px; }
+  .policy-section:first-child { border-top: none; padding-top: 0; }
+  .policy-section h2 {
+    font-size: 21px;
+    margin-bottom: 12px;
   }
   .policy-section p {
     font-size: 15.5px;
     line-height: 1.7;
     color: var(--ink);
-    max-width: 68ch;
     margin: 0 0 12px;
   }
   .policy-section ul {
-    max-width: 68ch;
     padding-left: 1.2em;
     margin: 0 0 12px;
   }
@@ -72,6 +75,11 @@
     font-size: 15.5px;
     line-height: 1.7;
     margin-bottom: 6px;
+  }
+
+  @media (max-width: 760px) {
+    .policy-layout { grid-template-columns: 1fr; }
+    .toc { position: static; border-left: none; padding-left: 0; flex-direction: row; flex-wrap: wrap; gap: 14px; }
   }
 </style>
 </head>
@@ -89,93 +97,103 @@
   </div>
 </header>
 
-<div class="policy-head">
-  <div class="wrap">
-    <span class="eyebrow">Legal</span>
+<div class="wrap">
+  <div class="policy-head">
+    <span class="label">
+      <svg viewBox="0 0 100 100"><circle cx="44" cy="48" r="29" fill="currentColor"/><circle cx="57" cy="41" r="26" fill="var(--cream)"/></svg>
+      Legal
+    </span>
     <h1>Privacy Policy</h1>
     <p class="updated">Effective October 13, 2026</p>
-  </div>
-</div>
-
-<div class="wrap policy-body">
-
-  <div class="policy-intro">
-    Athar is built to run entirely on your device. Prayer time and Qibla calculations,
-    your saved location, and your settings never leave your phone. The one exception
-    is anonymous usage analytics, described in Section&nbsp;6 — nothing that identifies
-    you personally is ever collected, stored, or sold.
+    <p class="lede">Athar is built to run entirely on your device. Prayer time and Qibla calculations, your saved location, and your settings never leave your phone. The one exception is anonymous usage analytics, covered below — nothing that identifies you personally is ever collected, stored, or sold.</p>
   </div>
 
-  <section class="policy-section">
-    <h2><span class="n">01</span> What we collect</h2>
-    <p>Athar has no user accounts, no sign-in, and no advertising, and we do not collect anything that identifies you personally — no name, email, or precise whereabouts. The app does send a small number of anonymous usage signals, such as which tab you opened or which feature you used (for example, placing a plane on the Flight Mode map), to help us understand how Athar is used and improve it. These signals never include your location, search queries, or anything else that could identify you. See Section 6 for exactly what this involves.</p>
-  </section>
+  <div class="policy-layout">
+    <nav class="toc" aria-label="Sections">
+      <a href="#collect">What we collect</a>
+      <a href="#location">Location</a>
+      <a href="#flight-mode">Flight Mode</a>
+      <a href="#storage">Storage</a>
+      <a href="#notifications">Notifications</a>
+      <a href="#third-parties">Third parties</a>
+      <a href="#children">Children's privacy</a>
+      <a href="#law">Governing law</a>
+      <a href="#changes">Changes</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-  <section class="policy-section">
-    <h2><span class="n">02</span> Location</h2>
-    <p>When you tap <strong>Update My Location</strong> on the Prayer Times tab, or search for a city, Athar uses Apple's on-device location and mapping services (Core Location / MapKit) to determine coordinates and, when searching, to resolve a place name to a location. That is handled directly between your device and Apple — Athar never receives it, and never sends it anywhere. Everything computed from it (prayer times, Qibla direction) happens locally on your device.</p>
-    <p>Because Apple's own services are involved in resolving a searched city name or a location's time zone, that part of the exchange is covered by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>, not this one.</p>
-  </section>
+    <div class="policy-body">
 
-  <section class="policy-section">
-    <h2><span class="n">03</span> Flight Mode</h2>
-    <p>The position you place on the map in Flight Mode is used only on your device to calculate prayer times and Qibla direction for that spot. It works fully offline. If your device happens to have a network signal, Athar will also ask Apple's location services for that position's exact time zone, purely to keep the daylight-saving calculation accurate — the same arrangement described in Location, above. This never touches a server we operate, and is separate from the anonymous usage analytics described in Section 6, which never include this position.</p>
-  </section>
+      <section class="policy-section" id="collect">
+        <h2>What we collect</h2>
+        <p>Athar has no user accounts, no sign-in, and no advertising, and we do not collect anything that identifies you personally — no name, email, or precise whereabouts. The app does send a small number of anonymous usage signals, such as which tab you opened or which feature you used (for example, placing a plane on the Flight Mode map), to help us understand how Athar is used and improve it. These signals never include your location, search queries, or anything else that could identify you. See Third parties, below, for exactly what this involves.</p>
+      </section>
 
-  <section class="policy-section">
-    <h2><span class="n">04</span> What's stored, and where</h2>
-    <p>Your selected location, calculation method, and other preferences are saved locally in your device's app storage. If you use the Lock Screen widget, that same information is shared privately between the Athar app and the widget <em>on your own device only</em>, using Apple's standard App Group mechanism — it is never transmitted off the device.</p>
-  </section>
+      <section class="policy-section" id="location">
+        <h2>Location</h2>
+        <p>When you tap <strong>Update My Location</strong> on the Prayer Times tab, or search for a city, Athar uses Apple's on-device location and mapping services (Core Location / MapKit) to determine coordinates and, when searching, to resolve a place name to a location. That is handled directly between your device and Apple — Athar never receives it, and never sends it anywhere. Everything computed from it (prayer times, Qibla direction) happens locally on your device.</p>
+        <p>Because Apple's own services are involved in resolving a searched city name or a location's time zone, that part of the exchange is covered by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>, not this one.</p>
+      </section>
 
-  <section class="policy-section">
-    <h2><span class="n">05</span> Notifications</h2>
-    <p>Prayer time notifications, if you turn them on, are scheduled and delivered entirely by your device's operating system. Athar does not use a push notification service and has no way to see whether or when a notification was shown.</p>
-  </section>
+      <section class="policy-section" id="flight-mode">
+        <h2>Flight Mode</h2>
+        <p>The position you place on the map in Flight Mode is used only on your device to calculate prayer times and Qibla direction for that spot. It works fully offline. If your device happens to have a network signal, Athar will also ask Apple's location services for that position's exact time zone, purely to keep the daylight-saving calculation accurate — the same arrangement described in Location, above. This never touches a server we operate, and is separate from the anonymous usage analytics described under Third parties, which never include this position.</p>
+      </section>
 
-  <section class="policy-section">
-    <h2><span class="n">06</span> Third parties</h2>
-    <p>Athar uses <a href="https://telemetrydeck.com" target="_blank" rel="noopener">TelemetryDeck</a>, a privacy-focused analytics service, to understand anonymous, aggregate usage patterns — for example, which tab gets used most, or whether the map or manual coordinate entry is used more often in Flight Mode. This helps us prioritize what to fix and improve.</p>
-    <ul>
-      <li>TelemetryDeck never receives your name, email, precise location, or any other information that identifies you.</li>
-      <li>It does not use Apple's advertising identifier (IDFA) and is not used for cross-app tracking or advertising — this is why Athar never shows an App Tracking Transparency prompt.</li>
-      <li>The signals it receives are simple event names (e.g. "a tab was opened," "a coordinate was set") with no personal data attached.</li>
-    </ul>
-    <p>You can read TelemetryDeck's own policy at <a href="https://telemetrydeck.com/privacy" target="_blank" rel="noopener">telemetrydeck.com/privacy</a>. Athar does not include any other third-party analytics, advertising, or tracking software development kits (SDKs).</p>
-  </section>
+      <section class="policy-section" id="storage">
+        <h2>What's stored, and where</h2>
+        <p>Your selected location, calculation method, and other preferences are saved locally in your device's app storage. If you use the Lock Screen widget, that same information is shared privately between the Athar app and the widget <em>on your own device only</em>, using Apple's standard App Group mechanism — it is never transmitted off the device.</p>
+      </section>
 
-  <section class="policy-section">
-    <h2><span class="n">07</span> Children's privacy</h2>
-    <p>Athar does not knowingly collect personal information from anyone, including children, because the app does not collect personal information from anyone — see Sections 1 and 6 for the only data it sends anywhere, which is anonymous and not personally identifying.</p>
-  </section>
+      <section class="policy-section" id="notifications">
+        <h2>Notifications</h2>
+        <p>Prayer time notifications, if you turn them on, are scheduled and delivered entirely by your device's operating system. Athar does not use a push notification service and has no way to see whether or when a notification was shown.</p>
+      </section>
 
-  <section class="policy-section">
-    <h2><span class="n">08</span> Governing law</h2>
-    <p>Athar is developed by an individual based in Sydney, Australia, and this policy is governed by the laws of New South Wales, Australia. Since Athar does not collect personal information in the first place, most data-protection regimes that are triggered by data collection — such as Australia's <em>Privacy Act 1988</em>, the EU's GDPR, or California's CCPA — are unlikely to apply to it, but Athar aims to respect your privacy regardless of where you're located.</p>
-  </section>
+      <section class="policy-section" id="third-parties">
+        <h2>Third parties</h2>
+        <p>Athar uses <a href="https://telemetrydeck.com" target="_blank" rel="noopener">TelemetryDeck</a>, a privacy-focused analytics service, to understand anonymous, aggregate usage patterns — for example, which tab gets used most, or whether the map or manual coordinate entry is used more often in Flight Mode. This helps us prioritize what to fix and improve.</p>
+        <ul>
+          <li>TelemetryDeck never receives your name, email, precise location, or any other information that identifies you.</li>
+          <li>It does not use Apple's advertising identifier (IDFA) and is not used for cross-app tracking or advertising — this is why Athar never shows an App Tracking Transparency prompt.</li>
+          <li>The signals it receives are simple event names (e.g. "a tab was opened," "a coordinate was set") with no personal data attached.</li>
+        </ul>
+        <p>You can read TelemetryDeck's own policy at <a href="https://telemetrydeck.com/privacy" target="_blank" rel="noopener">telemetrydeck.com/privacy</a>. Athar does not include any other third-party analytics, advertising, or tracking software development kits (SDKs).</p>
+      </section>
 
-  <section class="policy-section">
-    <h2><span class="n">09</span> Changes to this policy</h2>
-    <p>If this policy ever changes, the update will be posted at this same page with a new effective date above.</p>
-  </section>
+      <section class="policy-section" id="children">
+        <h2>Children's privacy</h2>
+        <p>Athar does not knowingly collect personal information from anyone, including children, because the app does not collect personal information from anyone — see What we collect and Third parties, above, for the only data it sends anywhere, which is anonymous and not personally identifying.</p>
+      </section>
 
-  <section class="policy-section">
-    <h2><span class="n">10</span> Contact</h2>
-    <p>Questions about this policy can be sent to <a href="mailto:theatharapp@gmail.com">theatharapp@gmail.com</a>.</p>
-  </section>
+      <section class="policy-section" id="law">
+        <h2>Governing law</h2>
+        <p>Athar is developed by an individual based in Sydney, Australia, and this policy is governed by the laws of New South Wales, Australia. Since Athar does not collect personal information in the first place, most data-protection regimes that are triggered by data collection — such as Australia's <em>Privacy Act 1988</em>, the EU's GDPR, or California's CCPA — are unlikely to apply to it, but Athar aims to respect your privacy regardless of where you're located.</p>
+      </section>
 
+      <section class="policy-section" id="changes">
+        <h2>Changes to this policy</h2>
+        <p>If this policy ever changes, the update will be posted at this same page with a new effective date above.</p>
+      </section>
+
+      <section class="policy-section" id="contact">
+        <h2>Contact</h2>
+        <p>Questions about this policy can be sent to <a href="mailto:theatharapp@gmail.com">theatharapp@gmail.com</a>.</p>
+      </section>
+
+    </div>
+  </div>
 </div>
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>&copy; <span id="year"></span> Athar</span>
+    <span>Athar — All rights reserved.</span>
     <div class="footer-links">
       <a href="index.html">Home</a>
       <a href="mailto:theatharapp@gmail.com">Contact</a>
     </div>
   </div>
 </footer>
-
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
 </body>
 </html>
