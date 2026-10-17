@@ -30,5 +30,8 @@ on a file) is enough — no local setup needed.
 ## Deploying
 
 Served via GitHub Pages directly from this repo. In **Settings → Pages**, set
-the source to the `main` branch, folder `/ (root)`. Point your domain's DNS at
-GitHub Pages and add a `CNAME` file here with that domain once it's live.
+the source to the `main` branch, folder `/ (root)`.
+
+Live at **theatharapp.com** — DNS is pointed at GitHub Pages (A records at the
+apex to GitHub's IPs, CNAME on `www`), and the `CNAME` file in this repo tells
+Pages which domain to serve.
