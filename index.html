@@ -5,7 +5,6 @@
 <title>Athar — Prayer Times & Qibla</title>
 <meta name="description" content="Accurate prayer times, a live Qibla compass, and full offline support for travel. No ads, no account, ever.">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/icon-512.png">
 <link rel="stylesheet" href="assets/style.css">
@@ -46,8 +45,8 @@
     position: absolute;
     width: 640px;
     height: 640px;
-    color: var(--on-green);
-    opacity: 0.08;
+    border-radius: 50%;
+    opacity: 0.16;
     left: -220px;
     top: -200px;
     pointer-events: none;
@@ -165,7 +164,7 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="index.html">
-      <img src="assets/icon.svg" alt="">
+      <img src="assets/icon.png" alt="">
       <span>Athar</span>
     </a>
     <nav>
@@ -175,14 +174,11 @@
 </header>
 
 <section class="hero-band">
-  <svg class="hero-crescent-big" viewBox="0 0 100 100" aria-hidden="true">
-    <circle cx="44" cy="48" r="29" fill="currentColor"/>
-    <circle cx="57" cy="41" r="26" fill="var(--green)"/>
-  </svg>
+  <img class="hero-crescent-big" src="assets/icon.png" alt="" aria-hidden="true">
   <div class="wrap">
     <div>
       <span class="label">
-        <svg viewBox="0 0 100 100"><circle cx="44" cy="48" r="29" fill="currentColor"/><circle cx="57" cy="41" r="26" fill="var(--green)"/></svg>
+        <img class="label-icon" src="assets/icon.png" alt="">
         Prayer Times &amp; Qibla
       </span>
       <h1>Prayer times that work, even when nothing else does.</h1>
@@ -211,7 +207,7 @@
 <section class="features">
   <div class="wrap">
     <span class="label">
-      <svg viewBox="0 0 100 100"><circle cx="44" cy="48" r="29" fill="currentColor"/><circle cx="57" cy="41" r="26" fill="var(--cream)"/></svg>
+      <img class="label-icon" src="assets/icon.png" alt="">
       What's inside
     </span>
     <ul class="feature-list">
@@ -239,7 +235,7 @@
   <div class="wrap about-grid">
     <div>
       <span class="label">
-        <svg viewBox="0 0 100 100"><circle cx="44" cy="48" r="29" fill="currentColor"/><circle cx="57" cy="41" r="26" fill="var(--cream-deep)"/></svg>
+        <img class="label-icon" src="assets/icon.png" alt="">
         About
       </span>
       <h2>Built to just work.</h2>
@@ -254,7 +250,7 @@
 <section class="closing">
   <div class="wrap">
     <span class="label">
-      <svg viewBox="0 0 100 100"><circle cx="44" cy="48" r="29" fill="currentColor"/><circle cx="57" cy="41" r="26" fill="var(--cream)"/></svg>
+      <img class="label-icon" src="assets/icon.png" alt="">
       Get Athar
     </span>
     <h2>Free on iOS and Android.</h2>
